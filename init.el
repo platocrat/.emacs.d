@@ -26,7 +26,9 @@ There are two things you can do about this warning:
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (flycheck fly-check use-package solarized-theme))))
+ '(package-selected-packages
+   (quote
+    (company lsp-docker lsp-mode lsp-treemacs lsp-ui flycheck fly-check use-package solarized-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -40,11 +42,7 @@ There are two things you can do about this warning:
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
 
-;; Add mode for Dockerfile syntax highlighting
-(require 'dockerfile-mode)
-(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
-
-;; install `flycheck`
+;;; Install `flycheck`
 (package-install 'flycheck)
 (global-flycheck-mode)
 ;; required for flycheck on MacOS
@@ -54,6 +52,20 @@ There are two things you can do about this warning:
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode))
+
+;;; Install `lsp-mode`
+;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+(setq lsp-keymap-prefix "s-l")
+(require 'lsp-mode)
+(use-package lsp-mode
+  :commands lsp)
+(use-package lsp-ui :commands lsp-ui-mode)
+(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+;; to use debugger
+(use-package dap-mode)
+
+;;; Use company-mode in all buffers
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;;; Personals:
 ;; Remove default top-nav toolbar
