@@ -1,5 +1,9 @@
+;;; package --- Summary
+;;; Commentary:
+;;; For installing MELPA.
 (require 'package)
 
+;;; Code:
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
 		    (not (gnutls-available-p))))
        (proto (if no-ssl "http" "https")))
@@ -36,7 +40,6 @@ There are two things you can do about this warning:
 
 ;; Enable SLIME for Quicklisp
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
-;; Common Lisp implementation for Slime
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
 
 ;; Add mode for Dockerfile syntax highlighting
@@ -94,7 +97,7 @@ There are two things you can do about this warning:
 	     ;; Optional - enable lsp-mode automatically in scala files
 	     :hook (scala-mode . lsp)
 	     (lsp-mode . lsp-lens-mode)
-	     :config (setq lsp-prefer-flymake nil))
+	     :config (setq lsp-diagnostic-package nil))
 
 ;; Add metals backend for lsp-mode
 (use-package lsp-metals
@@ -132,4 +135,4 @@ There are two things you can do about this warning:
 (when (string= system-type "darwin")
   (setq dired-use-ls-dired nil))
 
-;;; .emacs ends here
+;;; init.el ends here
