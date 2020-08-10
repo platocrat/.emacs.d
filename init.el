@@ -62,10 +62,18 @@ There are two things you can do about this warning:
 (use-package lsp-ui :commands lsp-ui-mode)
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 ;; to use debugger
+(package-install 'dap-mode)
+(require 'dap-mode)
 (use-package dap-mode)
+
 
 ;;; Use company-mode in all buffers
 (add-hook 'after-init-hook 'global-company-mode)
+
+;;; Remove error, see the following for reference:
+;;; https://stackoverflow.com/a/42038174/13391790
+(when (string= system-type "darwin")
+  (setq dired-use-ls-dired nil))
 
 ;;; Personals:
 ;; Remove default top-nav toolbar
