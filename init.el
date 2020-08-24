@@ -27,8 +27,7 @@ There are two things you can do about this warning:
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   (quote
-    (company lsp-docker lsp-mode lsp-treemacs lsp-ui flycheck fly-check use-package solarized-theme))))
+   '(company lsp-docker lsp-mode lsp-treemacs lsp-ui flycheck fly-check use-package solarized-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -53,27 +52,12 @@ There are two things you can do about this warning:
   :ensure t
   :init (global-flycheck-mode))
 
-;;; Install `lsp-mode`
-;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
-(setq lsp-keymap-prefix "s-l")
-(require 'lsp-mode)
-(use-package lsp-mode
-  :commands lsp)
-(use-package lsp-ui :commands lsp-ui-mode)
-(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
-;; to use debugger
-(package-install 'dap-mode)
-(require 'dap-mode)
-(use-package dap-mode)
-
-
-;;; Use company-mode in all buffers
-(add-hook 'after-init-hook 'global-company-mode)
-
-;;; Remove error, see the following for reference:
-;;; https://stackoverflow.com/a/42038174/13391790
-(when (string= system-type "darwin")
-  (setq dired-use-ls-dired nil))
+;; Package to enable multi-cursor on-click
+(use-package multiple-cursors
+  :ensure t
+  :bind (("M-." . mc/mark-next-like-this)
+	 ("M-," . mc/unmark-next-like-this)
+	 ("<s-mouse-1>" . mc/add-cursor-on-click)))
 
 ;;; Personals:
 ;; Remove default top-nav toolbar
