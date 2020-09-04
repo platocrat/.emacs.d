@@ -1,6 +1,8 @@
 ;;; package --- Summary
 ;;; Commentary:
 
+
+
 ;;; For installing MELPA.
 (require 'package)
 
@@ -28,7 +30,7 @@ There are two things you can do about this warning:
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(yasnippet lsp-ui rainbow-delimiters smartparens company lsp-docker flycheck fly-check use-package solarized-theme)))
+   '(org-roam-bibtex org-beautify-theme org-link-beautify org-dashboard org-sidebar org-roam org-roam-server all-the-icons-dired neotree all-the-icons atom-one-dark-theme yasnippet lsp-ui rainbow-delimiters smartparens company lsp-docker flycheck fly-check use-package solarized-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -37,11 +39,13 @@ There are two things you can do about this warning:
  '(lsp-ui-doc-background ((t (:background nil))))
  '(lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic))))))
 
-(add-to-list 'load-path "/Users/platocrat/.emacs.d/elpa/")
+
 
 ;; Enable SLIME for Quicklisp
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
+
+
 
 ;;; Install `flycheck`
 (package-install 'flycheck)
@@ -54,6 +58,8 @@ There are two things you can do about this warning:
   :ensure t
   :init (global-flycheck-mode))
 
+
+
 ;; Package to enable multi-cursor on-click
 (use-package multiple-cursors
   :ensure t
@@ -61,18 +67,26 @@ There are two things you can do about this warning:
 	 ("M-," . mc/unmark-next-like-this)
 	 ("<s-mouse-1>" . mc/add-cursor-on-click)))
 
+
+
 ;; Keeping parentheses balanced
 (use-package smartparens
   :config
   (add-hook 'prog-mode-hook 'smartparens-mode))
+
+
 
 ;; Highlight parens etc. for improved readability
 (use-package rainbow-delimiters
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
+
+
 ;; JavaScript
 (setq-default js-indent-level 2)
+
+
 
 ;;; lsp-mode -- for the n'th time...
 ;;; "`(use-package foo)` is a macro call that expands to `(require 'foo)`
@@ -128,6 +142,36 @@ There are two things you can do about this warning:
   :defer t
   :custom (company-lsp-cache-candidates 'auto))
 
+
+
+;;; Enabling `all-the-icons` package in various elements of Emacs
+;; Utility package to collect various Icon Fonts and propertize them within Emacs
+(use-package all-the-icons)
+
+;; Enable `all-the-icons` in dired-mode
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
+;; A tree plugin like NerdTree
+(use-package neotree)
+(global-set-key [f8] 'neotree-toggle)
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+
+
+
+;;; Org-roam
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+
+;; Ensure `sglite3` is located on `exec-path`
+(executable-find "sqlite3")
+
+;; Set directory for `org-roam`
+(setq org-roam-directory "~/.org-roam")
+
+;; Start global minor mode `org-roam-mode` on startup
+(add-hook 'after-init-hook 'org-roam-mode)
+
+
+
 ;;; Personals:
 ;; Remove default top-nav toolbar
 (tool-bar-mode -1)
@@ -135,7 +179,7 @@ There are two things you can do about this warning:
 ;; Normal erase for backspace key is opposite of default
 (normal-erase-is-backspace-mode 1)
 
-;; For solarized Emacs theme
-(load-theme 'solarized-dark t)
+;; Load theme
+(load-theme 'atom-one-dark t)
 
 ;;; init.el ends here
