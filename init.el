@@ -29,8 +29,13 @@ There are two things you can do about this warning:
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
+ '(display-time-24hr-format t)
+ '(display-time-day-and-date t)
+ '(display-time-mode t)
  '(package-selected-packages
-   '(org-roam-bibtex org-beautify-theme org-link-beautify org-dashboard org-sidebar org-roam org-roam-server all-the-icons-dired neotree all-the-icons atom-one-dark-theme yasnippet lsp-ui rainbow-delimiters smartparens company lsp-docker flycheck fly-check use-package solarized-theme)))
+   '(org-roam-bibtex org-beautify-theme org-link-beautify org-dashboard org-sidebar org-roam org-roam-server all-the-icons-dired neotree all-the-icons yasnippet lsp-ui rainbow-delimiters smartparens company lsp-docker flycheck fly-check use-package solarized-theme))
+ '(user-mail-address "platocrat@tuta.io"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -172,6 +177,13 @@ There are two things you can do about this warning:
 
 
 
+;;; Smart tab: `smart-tab` attempts to expand the text before the point or indent
+;; the current line or selection.
+(use-package smart-tab)
+(global-smart-tab-mode 1)
+
+
+
 ;;; Personals:
 ;; Remove default top-nav toolbar
 (tool-bar-mode -1)
@@ -180,6 +192,6 @@ There are two things you can do about this warning:
 (normal-erase-is-backspace-mode 1)
 
 ;; Load theme
-(load-theme 'atom-one-dark t)
+(load-theme 'solarized-dark t)
 
 ;;; init.el ends here

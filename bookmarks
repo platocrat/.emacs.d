@@ -3,8 +3,8 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
- (filename . "~/.org-roam/20200904152010-first_note.org")
- (front-context-string . "#+title: first-n")
+ (filename . "~/.org-roam/20200904174700-nextjs_netlify_faunadb_with_graphql.org")
+ (front-context-string . "#+title: nextjs-")
  (rear-context-string)
  (position . 1))
 )
