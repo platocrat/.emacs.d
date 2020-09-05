@@ -217,7 +217,7 @@ There are two things you can do about this warning:
 ;;; Use fancy-battery
 (use-package fancy-battery
   :init
-  (fancy-battery-mode)
+  (fancy-battery-mode))
 
 ;;; Use which-key
 (use-package which-key
