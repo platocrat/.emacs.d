@@ -29,12 +29,23 @@ There are two things you can do about this warning:
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(column-number-mode t)
+ '(column-number-mode nil)
  '(display-time-24hr-format t)
  '(display-time-day-and-date t)
+ '(display-time-mail-face 'default)
  '(display-time-mode t)
  '(package-selected-packages
    '(org-roam-bibtex org-beautify-theme org-link-beautify org-dashboard org-sidebar org-roam org-roam-server all-the-icons-dired neotree all-the-icons yasnippet lsp-ui rainbow-delimiters smartparens company lsp-docker flycheck fly-check use-package solarized-theme))
+ '(spaceline-all-the-icons-clock-always-visible t)
+ '(spaceline-all-the-icons-eyebrowse-display-name nil)
+ '(spaceline-all-the-icons-flycheck-alternate nil)
+ '(spaceline-all-the-icons-highlight-file-name t)
+ '(spaceline-all-the-icons-icon-set-git-ahead 'commit)
+ '(spaceline-all-the-icons-icon-set-modified 'toggle)
+ '(spaceline-all-the-icons-icon-set-window-numbering 'solid)
+ '(spaceline-all-the-icons-separator-type 'arrow)
+ '(spaceline-all-the-icons-slim-render t)
+ '(spaceline-all-the-icons-window-number-always-visible t)
  '(user-mail-address "platocrat@tuta.io"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -42,7 +53,8 @@ There are two things you can do about this warning:
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(lsp-ui-doc-background ((t (:background nil))))
- '(lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic))))))
+ '(lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic)))))
+ '(mode-line ((t (:background "#21252B" :foreground "#9DA5B4" :box (:line-width (1 . 1) :color "#181A1F"))))))
 
 
 
@@ -184,6 +196,37 @@ There are two things you can do about this warning:
 
 
 
+;;; Spaceline
+(use-package spaceline-all-the-icons)
+(use-package spaceline-all-the-icons
+  :after spaceline
+  :config
+  (spaceline-all-the-icons-theme)
+  (spaceline-all-the-icons--setup-git-ahead))
+
+
+
+;;; Git gutter
+(use-package git-gutter
+  :init
+  (git-gutter-mode))
+
+
+
+;;; Use fancy-battery
+(use-package fancy-battery
+  :init
+  (fancy-battery-mode)
+  :config
+  (set-face-attribute 'fancy-battery-charging nil
+		      :foreground "dark blue" :weight 'bold)
+  (set-face-attribute 'fancy-battery-discharging nil
+		      :foreground "dark magenta" :weight 'bold)
+  (set-face-attribute 'fancy-battery-critical nil
+		      :foreground "dark red" :weight 'bold))
+
+
+
 ;;; Personals:
 ;; Remove default top-nav toolbar
 (tool-bar-mode -1)
@@ -192,6 +235,6 @@ There are two things you can do about this warning:
 (normal-erase-is-backspace-mode 1)
 
 ;; Load theme
-(load-theme 'solarized-dark t)
+(load-theme 'atom-one-dark t)
 
 ;;; init.el ends here
