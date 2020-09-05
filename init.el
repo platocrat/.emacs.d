@@ -218,21 +218,12 @@ There are two things you can do about this warning:
 (use-package fancy-battery
   :init
   (fancy-battery-mode)
-  :config
-  (set-face-attribute 'fancy-battery-charging nil
-		      :foreground "dark blue" :weight 'bold)
-  (set-face-attribute 'fancy-battery-discharging nil
-		      :foreground "dark magenta" :weight 'bold)
-  (set-face-attribute 'fancy-battery-critical nil
-		      :foreground "dark red" :weight 'bold))
-
-
 
 ;;; Use which-key
 (use-package which-key
   :ensure t
   :init
-  (global-which-key-mode +1))
+  (which-key-mode))
 
 
 
@@ -240,7 +231,7 @@ There are two things you can do about this warning:
 (use-package eyebrowse
   :ensure t
   :init
-  (global-eyebrowse-mode +1))
+  (eyebrowse-mode))
 
 
 
