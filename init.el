@@ -208,8 +208,9 @@ There are two things you can do about this warning:
 
 ;;; Git gutter
 (use-package git-gutter
+  :ensure t
   :init
-  (git-gutter-mode))
+  (global-git-gutter-mode +1))
 
 
 
@@ -218,6 +219,7 @@ There are two things you can do about this warning:
   :init
   (fancy-battery-mode)
   :config
+  (fancy-battery-show-percentage t)
   (set-face-attribute 'fancy-battery-charging nil
 		      :foreground "dark blue" :weight 'bold)
   (set-face-attribute 'fancy-battery-discharging nil
