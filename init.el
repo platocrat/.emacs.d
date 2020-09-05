@@ -35,7 +35,7 @@ There are two things you can do about this warning:
  '(display-time-mail-face 'default)
  '(display-time-mode t)
  '(package-selected-packages
-   '(org-roam-bibtex org-beautify-theme org-link-beautify org-dashboard org-sidebar org-roam org-roam-server all-the-icons-dired neotree all-the-icons yasnippet lsp-ui rainbow-delimiters smartparens company lsp-docker flycheck fly-check use-package solarized-theme))
+   '(which-key org-roam-bibtex org-beautify-theme org-link-beautify org-dashboard org-sidebar org-roam org-roam-server all-the-icons-dired neotree all-the-icons yasnippet lsp-ui rainbow-delimiters smartparens company lsp-docker flycheck fly-check use-package solarized-theme))
  '(spaceline-all-the-icons-clock-always-visible t)
  '(spaceline-all-the-icons-eyebrowse-display-name nil)
  '(spaceline-all-the-icons-flycheck-alternate nil)
@@ -219,13 +219,28 @@ There are two things you can do about this warning:
   :init
   (fancy-battery-mode)
   :config
-  (fancy-battery-show-percentage t)
   (set-face-attribute 'fancy-battery-charging nil
 		      :foreground "dark blue" :weight 'bold)
   (set-face-attribute 'fancy-battery-discharging nil
 		      :foreground "dark magenta" :weight 'bold)
   (set-face-attribute 'fancy-battery-critical nil
 		      :foreground "dark red" :weight 'bold))
+
+
+
+;;; Use which-key
+(use-package which-key
+  :ensure t
+  :init
+  (global-which-key-mode +1))
+
+
+
+;;; Use eye-browse
+(use-package eyebrowse
+  :ensure t
+  :init
+  (global-eyebrowse-mode +1))
 
 
 
