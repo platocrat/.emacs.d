@@ -224,15 +224,6 @@ There are two things you can do about this warning:
   (which-key-mode))
 
 
-
-;;; Use eye-browse
-(use-package eyebrowse
-  :ensure t
-  :init
-  (eyebrowse-mode))
-
-
-
 ;;; Initialize line-spacing
 (setq-default line-spacing 0.3)
 
