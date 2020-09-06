@@ -187,6 +187,8 @@ There are two things you can do about this warning:
 ;; Start global minor mode `org-roam-mode` on startup
 (add-hook 'after-init-hook 'org-roam-mode)
 
+;; Initialize org-link-beautify-mode
+(add-hook 'after-init-org-link-beautify-mode 'org-link-beautify-mode)
 
 
 ;;; Smart tab: `smart-tab` attempts to expand the text before the point or indent
