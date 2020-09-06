@@ -245,7 +245,9 @@ There are two things you can do about this warning:
 ;; Normal erase for backspace key is opposite of default
 (normal-erase-is-backspace-mode 1)
 
-;; Load theme
+;; Load Emacs theme
 (load-theme 'atom-one-dark t)
+;; Load org-mode theme
+(load-theme 'org-beautify t)
 
 ;;; init.el ends here
