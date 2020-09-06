@@ -35,7 +35,7 @@ There are two things you can do about this warning:
  '(display-time-mail-face 'default)
  '(display-time-mode t)
  '(package-selected-packages
-   '(which-key org-roam-bibtex org-beautify-theme org-link-beautify org-dashboard org-sidebar org-roam org-roam-server all-the-icons-dired neotree all-the-icons yasnippet lsp-ui rainbow-delimiters smartparens company lsp-docker flycheck fly-check use-package solarized-theme))
+   '(exec-path-from-shell which-key org-roam-bibtex org-beautify-theme org-link-beautify org-dashboard org-sidebar org-roam org-roam-server all-the-icons-dired neotree all-the-icons yasnippet lsp-ui rainbow-delimiters smartparens company lsp-docker flycheck fly-check use-package solarized-theme))
  '(spaceline-all-the-icons-clock-always-visible t)
  '(spaceline-all-the-icons-eyebrowse-display-name nil)
  '(spaceline-all-the-icons-flycheck-alternate nil)
@@ -201,9 +201,7 @@ There are two things you can do about this warning:
 (use-package spaceline-all-the-icons
   :after spaceline
   :config
-  (spaceline-all-the-icons-theme)
-  (spaceline-all-the-icons--setup-git-ahead))
-
+  (spaceline-all-the-icons-theme))
 
 
 ;;; Git gutter
@@ -232,6 +230,11 @@ There are two things you can do about this warning:
   :ensure t
   :init
   (eyebrowse-mode))
+
+
+
+;;; Initialize line-spacing
+(setq-default line-spacing 0.3)
 
 
 
