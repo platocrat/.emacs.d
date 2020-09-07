@@ -38,7 +38,7 @@ There are two things you can do about this warning:
  '(display-time-mode nil)
  '(org-link-beautify-mode t)
  '(package-selected-packages
-   '(multiple-cursors atom-one-dark-theme exec-path-from-shell yasnippet lsp-ui rainbow-delimiters smartparens company lsp-docker flycheck fly-check use-package solarized-theme))
+   '(slime multiple-cursors atom-one-dark-theme exec-path-from-shell yasnippet lsp-ui rainbow-delimiters smartparens company lsp-docker flycheck fly-check use-package solarized-theme))
  '(spaceline-all-the-icons-clock-always-visible nil)
  '(spaceline-all-the-icons-eyebrowse-display-name nil)
  '(spaceline-all-the-icons-flycheck-alternate nil)
