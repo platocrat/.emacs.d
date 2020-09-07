@@ -3,6 +3,7 @@
 
 
 
+
 ;;; For installing MELPA.
 (require 'package)
 
@@ -30,13 +31,15 @@ There are two things you can do about this warning:
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode nil)
- '(display-time-24hr-format t)
- '(display-time-day-and-date t)
- '(display-time-mail-face 'default)
- '(display-time-mode t)
+ '(display-time-24hr-format nil)
+ '(display-time-day-and-date nil)
+ '(display-time-default-load-average nil)
+ '(display-time-mail-face nil)
+ '(display-time-mode nil)
+ '(org-link-beautify-mode t)
  '(package-selected-packages
-   '(exec-path-from-shell which-key org-roam-bibtex org-beautify-theme org-link-beautify org-dashboard org-sidebar org-roam org-roam-server all-the-icons-dired neotree all-the-icons yasnippet lsp-ui rainbow-delimiters smartparens company lsp-docker flycheck fly-check use-package solarized-theme))
- '(spaceline-all-the-icons-clock-always-visible t)
+   '(multiple-cursors atom-one-dark-theme exec-path-from-shell yasnippet lsp-ui rainbow-delimiters smartparens company lsp-docker flycheck fly-check use-package solarized-theme))
+ '(spaceline-all-the-icons-clock-always-visible nil)
  '(spaceline-all-the-icons-eyebrowse-display-name nil)
  '(spaceline-all-the-icons-flycheck-alternate nil)
  '(spaceline-all-the-icons-highlight-file-name t)
@@ -53,8 +56,7 @@ There are two things you can do about this warning:
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(lsp-ui-doc-background ((t (:background nil))))
- '(lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic)))))
- '(mode-line ((t (:background "#21252B" :foreground "#9DA5B4" :box (:line-width (1 . 1) :color "#181A1F"))))))
+ '(lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic))))))
 
 
 
@@ -161,71 +163,6 @@ There are two things you can do about this warning:
 
 
 
-;;; Enabling `all-the-icons` package in various elements of Emacs
-;; Utility package to collect various Icon Fonts and propertize them within Emacs
-(use-package all-the-icons)
-
-;; Enable `all-the-icons` in dired-mode
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-
-;; A tree plugin like NerdTree
-(use-package neotree)
-(global-set-key [f8] 'neotree-toggle)
-(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-
-
-
-;;; Org-roam
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
-
-;; Ensure `sglite3` is located on `exec-path`
-(executable-find "sqlite3")
-
-;; Set directory for `org-roam`
-(setq org-roam-directory "~/.org-roam")
-
-;; Start global minor mode `org-roam-mode` on startup
-(add-hook 'after-init-hook 'org-roam-mode)
-
-;; Initialize org-link-beautify-mode
-(add-hook 'after-init-org-link-beautify-mode 'org-link-beautify-mode)
-
-
-;;; Smart tab: `smart-tab` attempts to expand the text before the point or indent
-;; the current line or selection.
-(use-package smart-tab)
-(global-smart-tab-mode 1)
-
-
-
-;;; Spaceline
-(use-package spaceline-all-the-icons)
-(use-package spaceline-all-the-icons
-  :after spaceline
-  :config
-  (spaceline-all-the-icons-theme))
-
-
-;;; Git gutter
-(use-package git-gutter
-  :ensure t
-  :init
-  (global-git-gutter-mode +1))
-
-
-
-;;; Use fancy-battery
-(use-package fancy-battery
-  :init
-  (fancy-battery-mode))
-
-;;; Use which-key
-(use-package which-key
-  :ensure t
-  :init
-  (which-key-mode))
-
-
 ;;; Initialize line-spacing
 (setq-default line-spacing 0.3)
 
@@ -240,7 +177,7 @@ There are two things you can do about this warning:
 
 ;; Load Emacs theme
 (load-theme 'atom-one-dark t)
-;; Load org-mode theme
-(load-theme 'org-beautify t)
+
+
 
 ;;; init.el ends here
