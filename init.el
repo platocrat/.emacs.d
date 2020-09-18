@@ -38,7 +38,7 @@ There are two things you can do about this warning:
  '(display-time-mode nil)
  '(org-link-beautify-mode t)
  '(package-selected-packages
-   '(slime multiple-cursors atom-one-dark-theme exec-path-from-shell yasnippet lsp-ui rainbow-delimiters smartparens company lsp-docker flycheck fly-check use-package solarized-theme))
+   '(go-mode slime multiple-cursors atom-one-dark-theme exec-path-from-shell yasnippet lsp-ui rainbow-delimiters smartparens company lsp-docker flycheck fly-check use-package solarized-theme))
  '(spaceline-all-the-icons-clock-always-visible nil)
  '(spaceline-all-the-icons-eyebrowse-display-name nil)
  '(spaceline-all-the-icons-flycheck-alternate nil)
@@ -163,11 +163,6 @@ There are two things you can do about this warning:
 
 
 
-;;; Initialize line-spacing
-(setq-default line-spacing 0.3)
-
-
-
 ;;; Personals:
 ;; Remove default top-nav toolbar
 (tool-bar-mode -1)
@@ -178,6 +173,11 @@ There are two things you can do about this warning:
 ;; Load Emacs theme
 (load-theme 'atom-one-dark t)
 
+;; Initialize line-spacing
+(setq-default line-spacing 0.3)
+
+;; Initialize font style and size
+(set-face-attribute 'default nil :height 135)
 
 
 ;;; init.el ends here

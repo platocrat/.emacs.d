@@ -1,0 +1,32 @@
+;; -*- emacs-lisp -*- <20/09/14 21:29:04 /Users/platocrat/.config/emacs/tramp>
+;; Tramp connection history.  Don't change this file.
+;; Run `M-x tramp-cleanup-all-connections' instead.
+
+(((tramp-file-name "sudo" "root" nil "platocrats-MacBook-Pro.local" nil nil nil)
+  ("uname" "Darwin 19.6.0")
+  ("test" "test")
+  ("remote-path"
+   ("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("pipe-buf" 512)
+  ("remote-shell" "/bin/sh")
+  ("locale" "LC_ALL=en_US.UTF-8")
+  ("readlink" nil)
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("stat" nil)
+  ("id" "/usr/bin/id")
+  ("gid-integer" 0)
+  ("gid-string" "wheel")
+  ("uid-string" "root")
+  ("ls" "/bin/ls")
+  ("ls--quoting-style=literal --show-control-chars" nil)
+  ("ls--dired" nil)
+  ("df-blocksize" 1024)
+  ("df" "\\df -k")
+  ("file-exists" "test -e")
+  ("case-insensitive" t)
+  ("uid-integer" 0)
+  ("bzr" nil)
+  ("git" "\\git")
+  ("hg" nil)))

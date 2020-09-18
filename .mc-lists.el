@@ -3,9 +3,16 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	ignore
 	keyboard-escape-quit
+	mouse-drag-mode-line
+	mouse-select-window
 	))
 
 (setq mc/cmds-to-run-once
       '(
+	handle-switch-frame
+	mouse-set-region
+	next-buffer
+	previous-buffer
 	))
