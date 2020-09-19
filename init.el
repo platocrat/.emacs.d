@@ -177,7 +177,7 @@ There are two things you can do about this warning:
 (setq-default line-spacing 0.3)
 
 ;; Initialize font style and size
-(set-face-attribute 'default nil :height 135)
+(set-face-attribute 'default nil :height 145)
 
 
 ;;; init.el ends here

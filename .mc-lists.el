@@ -6,6 +6,7 @@
 	ignore
 	keyboard-escape-quit
 	mouse-drag-mode-line
+	mouse-minor-mode-menu
 	mouse-select-window
 	))
 
